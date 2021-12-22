@@ -26,21 +26,24 @@ import TestDetail from "./pages/TestDetail";
 import Testlist from "./pages/Testlist";
 
 function App() {
-    const [start, setStart] = useState(false);
+    const [appIndex, setAppIndex] = useState(null);
     const [loginCheck, setLoginCheck] = useState(false);
     const [testIndex, setTestIndex] = useState(testDetails[0].id);
 
     return (
         <div className="app">
             {/* <Intro></Intro> */}
-            {start === false ? (
-                <Intro2 start={start} setStart={setStart}></Intro2>
-            ) : (
+
+            {appIndex === 0 ? (
+                <Intro2 appIndex={appIndex} setAppIndex={setAppIndex} />
+            ) : null}
+            {appIndex === 1 ? (
                 <>
-                    <Header></Header>
-                    <Footer></Footer>
+                    <Header />
+                    <Footer />
                 </>
-            )}
+            ) : null}
+            {appIndex === 2 ? <Login /> : null}
 
             <Switch>
                 {/* <Route
@@ -61,6 +64,8 @@ function App() {
                     component={Home}
                     loginCheck={loginCheck}
                     setLoginCheck={setLoginCheck}
+                    setAppIndex={setAppIndex}
+                    appIndex={appIndex}
                 ></Route>
                 <Route exact path="/test" component={Test}></Route>
                 <Route exact path="/testlist" component={Testlist}></Route>

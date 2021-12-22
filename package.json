@@ -2,5 +2,8 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "react-daum-postcode": "^3.0.1"
+  },
+  "prettier": {
+    
   }
 }
